@@ -12,8 +12,21 @@ This Shell script is designed for shared hosting environments without root acces
 2. The script checks for updates, and if available, prompts for an update.
 3. Enjoy the latest version of WP-CLI with tab completion support.
 
+Your instructions for installation seem clear, but there is a small typo in the second step. It should be `.bashrc` instead of `.bash_profile`. Here is the corrected version:
+
 ## Installation:
-`wget -O wp-cli-init.sh https://raw.githubusercontent.com/Denjamins/wp-cli-init/main/wp-cli-init.sh`
+1. Download to the user home directory with:
+   ```bash
+   wget -O wp-cli-init.sh https://raw.githubusercontent.com/Denjamins/wp-cli-init/main/wp-cli-init.sh
+   ```
+2. Add `source ~/wp-cli-init.sh` to your `.bashrc`:
+   ```bash
+   echo "source ~/wp-cli-init.sh" >> ~/.bashrc
+   ```
+   or `.bash_profile`:
+   ```bash
+   echo "source ~/wp-cli-init.sh" >> ~/.bash_profile
+   ```
 
 **Author:** Denis Surkov
 
