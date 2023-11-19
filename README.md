@@ -1,4 +1,4 @@
-# WP-CLI-Init Script
+# WP-CLI Init Script
 
 This Shell script is designed for shared hosting environments without root access. It facilitates the installation, verification, and updating of [WP CLI](https://wp-cli.org) along with [Tab Completion for WP CLI](https://make.wordpress.org/cli/handbook/guides/installing/#tab-completions).
 
