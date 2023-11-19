@@ -12,8 +12,6 @@ This Shell script is designed for shared hosting environments without root acces
 2. The script checks for updates, and if available, prompts for an update.
 3. Enjoy the latest version of WP-CLI with tab completion support.
 
-Your instructions for installation seem clear, but there is a small typo in the second step. It should be `.bashrc` instead of `.bash_profile`. Here is the corrected version:
-
 ## Installation:
 1. Download to the user home directory with:
    ```bash
