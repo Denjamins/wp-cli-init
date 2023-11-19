@@ -4,19 +4,43 @@
 # Shell Script by Denis Surkov
 # GitHub: https://github.com/Denjamins/wp-cli-init 
 
+# Current version of the script
+current_version="1.0"
+
+# Function to check the version
+check_version() {
+    remote_version=$(curl -s https://raw.githubusercontent.com/Denjamins/wp-cli-init/main/wp-cli-init.sh | grep -oP '^current_version="\K[^"]+')
+    
+    if [[ "$current_version" == "$remote_version" ]]; then
+        echo "Version $current_version is up to date."
+    else
+        echo "A new version, $remote_version, is available."
+        read -p "Would you like to update the script? (Y/N): " choice
+        if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
+            wget -O wp-cli-init.sh https://raw.githubusercontent.com/Denjamins/wp-cli-init/main/wp-cli-init.sh
+            echo "Script updated to version $remote_version."
+        else
+            echo "Update canceled."
+        fi
+    fi
+}
+
+# Check the version when the script is executed
+check_version
+
 # Paths to WP-CLI and WP-Completion files
 wp_cli_path=~/wp-cli.phar
 wp_completion_path=~/wp-completion.bash
 
 # Function to install WP-CLI
-function install_wp_cli {
+install_wp_cli() {
     curl -o "$wp_cli_path" https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x "$wp_cli_path"
     echo "✅ WP-CLI installed"
 }
 
 # Function to install WP-Completion
-function install_wp_completion {
+install_wp_completion() {
     curl -o "$wp_completion_path" https://raw.githubusercontent.com/wp-cli/wp-cli/main/utils/wp-completion.bash
     echo "✅ WP-Completion installed"
 }
@@ -43,7 +67,7 @@ if [ -e "$wp_cli_path" ]; then
             # Downloading wp-completion.bash
             install_wp_completion
         else
-            echo -e "\nWP-CLI not updated"
+            echo "Update canceled."
         fi
     fi
 else
