@@ -29,9 +29,5 @@ Your instructions for installation seem clear, but there is a small typo in the 
    ```
 
 **Author:** Denis Surkov
-
 **GitHub:** https://github.com/Denjamins
-
 Feel free to contribute or provide feedback!
-
-It looks like you've asked the same question again. If there's anything specific you'd like to know or if you have any other questions, feel free to ask!
