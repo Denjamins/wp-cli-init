@@ -6,6 +6,7 @@ This Shell script is designed for shared hosting environments without root acces
 - Installs WP-CLI and WP-Completion if not already present.
 - Checks for WP-CLI updates and prompts for an update if available.
 - Ensures seamless usage of WP-CLI and its tab completion.
+- Checking for updates of this script.
 
 ## Instructions:
 1. Run the script to install WP-CLI and WP-Completion.
