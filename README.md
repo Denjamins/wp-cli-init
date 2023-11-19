@@ -18,7 +18,7 @@ This Shell script is designed for shared hosting environments without root acces
 
 **Author:** Denis Surkov
 
-**GitHub:** [Your GitHub Profile or Repository URL]
+**GitHub:** https://github.com/Denjamins
 
 Feel free to contribute or provide feedback!
 
