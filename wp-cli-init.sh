@@ -5,7 +5,7 @@
 # GitHub: https://github.com/Denjamins/wp-cli-init 
 
 # Current version of the script
-current_version="1.04"
+current_version="1.05"
 
 # Function to check the version
 check_version() {
@@ -52,9 +52,7 @@ if [ -e "$wp_cli_path" ]; then
     echo "WP-CLI is running"
 
     update_status=$(wp cli check-update)
-    if [[ "$update_status" == *"Success: WP-CLI is at the latest version."* ]]; then
-        echo "WP-CLI is up to date"
-    else
+    if [[ "$update_status" != *"Success: WP-CLI is at the latest version."* ]]; then
         echo -e "\nUpdates available for WP-CLI:"
         echo "$update_status"
     
