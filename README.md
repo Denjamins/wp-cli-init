@@ -13,7 +13,7 @@ This Shell script is designed for shared hosting environments without root acces
 3. Enjoy the latest version of WP-CLI with tab completion support.
 
 ## Installation:
-`wget https://github.com/Denjamins/wp-cli-init/blob/main/wp-cli-init.sh`
+`wget -O wp-cli-init.sh https://raw.githubusercontent.com/Denjamins/wp-cli-init/main/wp-cli-init.sh`
 
 **Author:** Denis Surkov
 
