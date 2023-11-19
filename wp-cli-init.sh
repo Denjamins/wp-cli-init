@@ -5,7 +5,7 @@
 # GitHub: https://github.com/Denjamins/wp-cli-init 
 
 # Current version of the script
-current_version="1.01"
+current_version="1.02"
 
 # Function to check the version
 check_version() {
