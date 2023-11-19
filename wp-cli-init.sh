@@ -12,11 +12,11 @@ check_version() {
     remote_version=$(curl -s "https://raw.githubusercontent.com/Denjamins/wp-cli-init/main/wp-cli-init.sh?$(date +%s)" | grep -oP '^current_version="\K[^"]+')
     
     if [[ "$current_version" != "$remote_version" ]]; then
-        echo -e "\nWP-CLI-Init $remote_version is available."
+        echo -e "\nWP-CLI Init $remote_version is available."
         read -p "Would you like to update? (Y/N): " choice
         if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
             wget -O wp-cli-init.sh "https://raw.githubusercontent.com/Denjamins/wp-cli-init/main/wp-cli-init.sh?$(date +%s)"
-            echo "WP-CLI-Init updated to $remote_version."
+            echo "WP-CLI Init updated to $remote_version."
         else
             echo "Update canceled."
         fi
