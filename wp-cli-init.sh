@@ -1,54 +1,62 @@
 #!/bin/bash
 
+# wp-cli-init
+# Shell Script by Denis Surkov
+# GitHub: https://github.com/Denjamins/wp-cli-init 
+
+# Paths to WP-CLI and WP-Completion files
 wp_cli_path=~/wp-cli.phar
 wp_completion_path=~/wp-completion.bash
 
+# Function to install WP-CLI
 function install_wp_cli {
-	curl -o $wp_cli_path https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-	chmod +x $wp_cli_path
-	echo "✅ WP-CLI установлен"
+    curl -o "$wp_cli_path" https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    chmod +x "$wp_cli_path"
+    echo "✅ WP-CLI installed"
 }
+
+# Function to install WP-Completion
 function install_wp_completion {
-	curl -o $wp_completion_path https://raw.githubusercontent.com/wp-cli/wp-cli/main/utils/wp-completion.bash
-	echo "✅ WP-Completion установлен"
+    curl -o "$wp_completion_path" https://raw.githubusercontent.com/wp-cli/wp-cli/main/utils/wp-completion.bash
+    echo "✅ WP-Completion installed"
 }
 
 echo ""
-# проверка WP-CLI
 
+# Checking for WP-CLI
 if [ -e "$wp_cli_path" ]; then
-    # Если wp-cli.phar существует
-
+    # If wp-cli.phar exists
     alias wp="$wp_cli_path"
-    echo "WP-CLI запущен"
+    echo "WP-CLI is running"
 
-		update_status=$(wp cli check-update)
-		if [[ "$update_status" == *"Success: WP-CLI is at the latest version."* ]]; then
-		    echo "WP-CLI последней версии"
-		else
-		    echo -e "\nДоступны обновления WP-CLI:"
-		    echo "$update_status"
-
-		    read -p "Обновить WP-CLI? (Y/N): " choice
-		    if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
-		        # Обновляем WP-CLI
-		        wp cli update --yes
-		        # Загружаем файл wp-completion.bash
-		        install_wp_completion
-		    else
-		        echo -e "\nWP-CLI не обновлен"
-		    fi
-		fi
+    update_status=$(wp cli check-update)
+    if [[ "$update_status" == *"Success: WP-CLI is at the latest version."* ]]; then
+        echo "WP-CLI is up to date"
+    else
+        echo -e "\nUpdates available for WP-CLI:"
+        echo "$update_status"
+    
+        read -p "Update WP-CLI? (Y/N): " choice
+        if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
+            # Updating WP-CLI
+            wp cli update --yes
+            # Downloading wp-completion.bash
+            install_wp_completion
+        else
+            echo -e "\nWP-CLI not updated"
+        fi
+    fi
 else
-		install_wp_cli
+    # If wp-cli.phar does not exist, install it
+    install_wp_cli
 fi
 
-# проверка WP-Completion
-
+# Checking for WP-Completion
 if [ -e "$wp_completion_path" ]; then
-    # Если файл существует, устанавливаем псевдоним с использованием переменной
-    source $wp_completion_path
-    echo "WP-Completion запущен"
+    # If file exists, set up alias using the variable
+    source "$wp_completion_path"
+    echo "WP-Completion is running"
 else
-	install_wp_completion
+    # If wp-completion.bash does not exist, install it
+    install_wp_completion
 fi
