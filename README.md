@@ -13,6 +13,11 @@ This Shell script is designed for shared hosting environments without root acces
 2. The script checks for updates, and if available, prompts for an update.
 3. Enjoy the latest version of WP-CLI with tab completion support.
 
+## Usage
+
+- Use the `--ver` parameter to check the version of the script, e.g., `wp-cli-init.sh --ver`.
+
+
 ## Installation:
 1. Download to the user home directory with:
    ```bash
