@@ -38,6 +38,7 @@ if [ "$1" == "--ver" ]; then
 fi
 
 # Paths to WP-CLI and WP-Completion files
+alias wp='~/wp-cli.phar'
 wp_cli_path=~/wp-cli.phar
 wp_completion_path=~/wp-completion.bash
 
