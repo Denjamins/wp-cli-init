@@ -29,7 +29,7 @@ This Shell script is designed for shared hosting environments without root acces
    ```
    or `.bash_profile`:
    ```bash
-   if [[ $- == *i* ]]; then source ~/wp-cli-init.sh; fi
+   if [[ \$- == *i* ]]; then source ~/wp-cli-init.sh; fi
    ```
 
 **Author:** Denis Surkov
